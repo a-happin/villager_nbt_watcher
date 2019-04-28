@@ -31,7 +31,7 @@ for Minecraft JE 1.14
 
 - 紐づけされた職業ブロックをライン表示　　
 
-- meeting_pointの表示　ただし雑なので村人1人の情報しか見てない（←おい）　　
+- 紐づけされた集会所のライン表示
 
 - Gossipsが変わった瞬間にチャットログに流す　村人が多いと早すぎてよくわからん　　
 
@@ -43,7 +43,23 @@ for Minecraft JE 1.14
 
 - villager 読み込んでいる（？）村人の数　　
 
-- total_golem_count ゴーレムのスポーン自動カウント　　
+- total_golem_count ゴーレムのスポーン自動カウント
+
+- show_bed_line ベッドをライン表示するかどうか
+
+- show_job_line ジョブをライン表示するかどうか
+
+- show_meeting_line 集会所をライン表示するかどうか
+
+### triggerコマンド系
+
+- `trigger bed_line` ベッドのライン表示を切り替え(実行するたびに 表示/非表示 が入れ替わる)
+
+- `trigger job_line` ジョブのライン表示を切り替え(実行するたびに 表示/非表示 が入れ替わる)
+
+- `trigger meeting_line` 集会所のライン表示を切り替え(実行するたびに 表示/非表示 が入れ替わる)
+
+- `trigger reset_golemcount` アイアンゴーレムのスポーンカウントをリセットする
 
 
 ## 製作者

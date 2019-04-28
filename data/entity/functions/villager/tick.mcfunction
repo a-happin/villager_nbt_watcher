@@ -1,9 +1,4 @@
 
-# ベッドのラインを表示
-execute if entity @s[nbt={Brain:{memories:{"minecraft:home":{}}}}] run function entity:villager/bed_line
-
-# jobのラインを表示
-execute if entity @s[nbt={Brain:{memories:{"minecraft:job_site":{}}}}] run function entity:villager/job_line
 
 # Gossipsの数
 execute store result score @s gossips run data get entity @s Gossips

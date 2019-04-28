@@ -28,10 +28,30 @@ scoreboard objectives add gossip19 dummy {"text":"Gossips[19]"}
 
 scoreboard objectives add gossip_old dummy {"text":"直前のGossip"}
 
+# trigger
+scoreboard objectives add bed_line trigger {"text":"ベッドのライン表示切り替え"}
+scoreboard objectives add job_line trigger {"text":"ジョブのライン表示切り替え"}
+scoreboard objectives add meeting_line trigger {"text":"集会所のライン表示切り替え"}
+scoreboard objectives add reset_golemcount trigger {"text":"ゴーレムカウントリセットボタン"}
+
 
 # initialize
 scoreboard objectives setdisplay sidebar global
 
-scoreboard players set $datapack_initialized const 1
+scoreboard players set $datapack_version const 2
+scoreboard players set $2 const 2
 
 scoreboard players set $total_golem_count global 0
+scoreboard players set $show_bed_line global 1
+scoreboard players set $show_job_line global 1
+scoreboard players set $show_meeting_line global 1
+
+scoreboard players enable @a bed_line
+scoreboard players enable @a job_line
+scoreboard players enable @a meeting_line
+scoreboard players enable @a reset_golemcount
+
+# 前バージョンからのゴミを削除
+
+scoreboard players reset $datapack_initialized const
+kill @e[type=armor_stand,tag=meeting_point]
