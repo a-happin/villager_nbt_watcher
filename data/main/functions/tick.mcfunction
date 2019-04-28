@@ -1,6 +1,6 @@
 
 
-# execute幾何学用ヘルパーアマスタの数調整
+# ヘルパーアマスタの数調整
 execute store result score $helper_num global_impl if entity @e[tag=helper]
 execute if score $helper_num global_impl matches 2.. run kill @e[tag=helper]
 execute unless entity @e[tag=helper] run summon minecraft:armor_stand ~ ~ ~ {CustomName:"{\"text\":\"helper\"}",Marker:1b,NoGravity:1b,Invisible:1b,Tags:["helper"]}
