@@ -8,9 +8,9 @@ for Minecraft JE 1.14
 
 ## 使い方
 
-1. ダウンロードします。[リンク](https://github.com/ankoton/villager_nbt_watcher/releases/download/v0.0.2/villager_nbt_watcher.zip)
-2. 入れたいワールドのフォルダを開いてdatapacksの中に入れます。
-  例: (.minecraft/saves/testワールド/datapacks/villager_nbt_watcher.zip)みたいなかんじになります
+1. [ここ！！！！](https://github.com/ankoton/villager_nbt_watcher/releases)からダウンロードしたいバージョンの`Assets`を開き、`villager_nbt_watcher.zip`をダウンロードする。
+2. ダウンロードしたzipファイルを入れたいワールドのフォルダを開いてdatapacksの中に入れます。
+  例えば、`.minecraft/saves/testワールド/datapacks/villager_nbt_watcher.zip`みたいなかんじになります
 3. 入れたワールドに入って`/reload`コマンドを実行。
 4. あとは好きに
 
