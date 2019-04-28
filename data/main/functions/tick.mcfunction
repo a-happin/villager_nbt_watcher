@@ -21,7 +21,7 @@ execute as @e[type=iron_golem,tag=] run tag @s add counted
 execute as @e[type=villager] at @s rotated as @s run function entity:villager/tick
 
 # 集会所の位置表示
-#execute unless entity @e[type=villager,nbt={Brain:{memories:{"minecraft:meeting_point":{}}}},limit=1] run kill @e[tag=meeting_point]
+execute unless entity @e[type=villager,nbt={Brain:{memories:{"minecraft:meeting_point":{}}}},limit=1] run kill @e[tag=meeting_point]
 execute as @e[type=villager,nbt={Brain:{memories:{"minecraft:meeting_point":{}}}},limit=1] run function entity:villager/meeting_point
 
 
