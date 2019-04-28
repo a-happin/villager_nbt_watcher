@@ -39,10 +39,6 @@ execute if score $show_job_line global matches 1 as @e[type=villager,nbt={Brain:
 # 集会所ラインを表示
 execute if score $show_meeting_line global matches 1 as @e[type=villager,nbt={Brain:{memories:{"minecraft:meeting_point":{}}}}] at @s run function entity:villager/meeting_point_line
 
-# 集会所の位置表示
-#execute unless entity @e[type=villager,nbt={Brain:{memories:{"minecraft:meeting_point":{}}}},limit=1] run kill @e[tag=meeting_point]
-#execute as @e[type=villager,nbt={Brain:{memories:{"minecraft:meeting_point":{}}}},limit=1] run function entity:villager/meeting_point
-
 
 # ヘルパーアマスタ位置戻す
 tp @e[tag=helper] ~ ~ ~ ~ ~
