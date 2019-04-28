@@ -2,7 +2,7 @@
 # define
 scoreboard objectives add global dummy {"text":"グローバル変数"}
 scoreboard objectives add global_impl dummy {"text":"内部用グローバル変数"}
-scoreboard objectives add const dummy {"text":"定数"}
+#scoreboard objectives add const dummy {"text":"定数"}
 
 scoreboard objectives add gossips dummy {"text":"Gossipsの数"}
 scoreboard objectives add gossip0 dummy {"text":"Gossips[0]"}
