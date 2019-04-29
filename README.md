@@ -53,13 +53,13 @@ for Minecraft JE 1.14
 
 ### triggerコマンド系
 
-- `trigger bed_line` ベッドのライン表示を切り替え(実行するたびに 表示/非表示 が入れ替わる)
+- `/trigger bed_line` ベッドのライン表示を切り替え(実行するたびに 表示/非表示 が入れ替わる)
 
-- `trigger job_line` ジョブのライン表示を切り替え(実行するたびに 表示/非表示 が入れ替わる)
+- `/trigger job_line` ジョブのライン表示を切り替え(実行するたびに 表示/非表示 が入れ替わる)
 
-- `trigger meeting_line` 集会所のライン表示を切り替え(実行するたびに 表示/非表示 が入れ替わる)
+- `/trigger meeting_line` 集会所のライン表示を切り替え(実行するたびに 表示/非表示 が入れ替わる)
 
-- `trigger reset_golemcount` アイアンゴーレムのスポーンカウントをリセットする
+- `/trigger reset_golemcount` アイアンゴーレムのスポーンカウントをリセットする
 
 
 ## 製作者
