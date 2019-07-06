@@ -1,44 +1,50 @@
 
-# トリガー処理
-execute if entity @a[scores={bed_line=1..}] run function entity:player/trigger_bed_line
-execute if entity @a[scores={job_line=1..}] run function entity:player/trigger_job_line
-execute if entity @a[scores={meeting_line=1..}] run function entity:player/trigger_meeting_line
-execute if entity @a[scores={reset_golemcount=1..}] run function entity:player/trigger_reset_golem_count
+# system entity
+function entity:system/summon
 
-# トリガーリセット
-scoreboard players enable @a bed_line
-scoreboard players enable @a job_line
+# trigger
+
+# switch settings by trigger
+execute if entity @a[scores={home_line=1..}] run function entity:player/trigger_home_line
+execute if entity @a[scores={job_site_line=1..}] run function entity:player/trigger_job_site_line
+execute if entity @a[scores={meeting_line=1..}] run function entity:player/trigger_meeting_line
+execute if entity @a[scores={report_gossip=1..}] run function entity:player/trigger_report_gossip
+
+# reset trigger
+scoreboard players enable @a home_line
+scoreboard players enable @a job_site_line
 scoreboard players enable @a meeting_line
-scoreboard players enable @a reset_golemcount
+scoreboard players enable @a report_gossip
 
 # ヘルパーアマスタの数調整
-execute store result score $helper_num global_impl if entity @e[tag=helper]
-execute if score $helper_num global_impl matches 2.. run kill @e[tag=helper]
-execute unless entity @e[tag=helper] run summon minecraft:armor_stand ~ ~ ~ {CustomName:"{\"text\":\"helper\"}",Marker:1b,NoGravity:1b,Invisible:1b,Tags:["helper"]}
+#execute store result score $helper_num global_impl if entity @e[tag=helper]
+#execute if score $helper_num global_impl matches 2.. run kill @e[tag=helper]
+#execute unless entity @e[tag=helper] run summon minecraft:armor_stand ~ ~ ~ {CustomName:"{\"text\":\"helper\"}",Marker:1b,NoGravity:1b,Invisible:1b,Tags:["helper"]}
 
-# daytime表示
+# get daytime
 execute store result score $daytime global run time query daytime
 
-# 村人の数表示
+# get amount of villager
 execute store result score $villager global if entity @e[type=villager]
 
-# ゴーレムが湧いたら
-execute as @e[type=iron_golem,tag=] run function entity:iron_golem/init
+# show info
+title @a actionbar ["daytime: ",{"score":{"name":"$daytime","objective":"global"}}]
 
 
-# 村人処理
-execute as @e[type=villager] at @s rotated as @s run function entity:villager/tick
 
+# report gossip
+execute if score $report_gossip global matches 1 as @e[type=villager] at @s run function entity:villager/report_gossip
 
-# ベッドのラインを表示
-execute if score $show_bed_line global matches 1 as @e[type=villager,nbt={Brain:{memories:{"minecraft:home":{}}}}] at @s run function entity:villager/bed_line
+# show home
+execute if score $show_home_line global matches 1 as @e[type=villager,nbt={Brain:{memories:{"minecraft:home":{}}}}] at @s run function entity:villager/home_line
 
-# jobのラインを表示
-execute if score $show_job_line global matches 1 as @e[type=villager,nbt={Brain:{memories:{"minecraft:job_site":{}}}}] at @s run function entity:villager/job_line
+# show job_site
+execute if score $show_job_site_line global matches 1 as @e[type=villager,nbt={Brain:{memories:{"minecraft:job_site":{}}}}] at @s run function entity:villager/job_site_line
 
-# 集会所ラインを表示
+# show meeting_point
 execute if score $show_meeting_line global matches 1 as @e[type=villager,nbt={Brain:{memories:{"minecraft:meeting_point":{}}}}] at @s run function entity:villager/meeting_point_line
 
 
-# ヘルパーアマスタ位置戻す
-tp @e[tag=helper] ~ ~ ~ ~ ~
+
+# relocate system entity
+function entity:system/locate

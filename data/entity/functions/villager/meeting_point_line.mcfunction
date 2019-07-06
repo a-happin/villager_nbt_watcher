@@ -1,15 +1,19 @@
-# 集会所ライン
+# show meeting_line
 
-# meeting_pointの位置取得
-execute store result score $x global_impl run data get entity @s Brain.memories.minecraft:meeting_point.pos[0]
-execute store result score $y global_impl run data get entity @s Brain.memories.minecraft:meeting_point.pos[1]
-execute store result score $z global_impl run data get entity @s Brain.memories.minecraft:meeting_point.pos[2]
+# get meeting_point position
+function lib:villager/store_position_of_meeting_point
 
-# helperアマスタに位置を代入
-execute as @e[tag=helper,limit=1] run function calc:setpos
+# set execute_helper
+execute anchored eyes positioned ^ ^ ^ anchored feet facing entity 0-0-0-0-cafe feet run tp 0-0-0-0-1 ~ ~ ~ ~ ~
+tp 0-0-0-0-2 0-0-0-0-cafe
 
-# helperアマスタの位置微調整、向き修正
-execute at @e[tag=helper,limit=1] facing entity @s eyes run tp @e[tag=helper,limit=1] ~0.5 ~ ~0.5 ~ ~
+# show line
+execute as 0-0-0-0-1 at @s positioned ^2048 ^ ^ facing entity 0-0-0-0-2 feet positioned ^ ^ ^1024 rotated as @s positioned ^-1024 ^ ^ positioned ^2048 ^ ^ facing entity @e[tag=helper,limit=2] feet positioned ^ ^ ^1024 rotated as @s positioned ^-1024 ^ ^ positioned ^2048 ^ ^ facing entity @e[tag=helper,limit=2] feet positioned ^ ^ ^1024 rotated as @s positioned ^-1024 ^ ^ positioned ^2048 ^ ^ facing entity @e[tag=helper,limit=2] feet positioned ^ ^ ^1024 rotated as @s positioned ^-1024 ^ ^ positioned ^2048 ^ ^ facing entity @e[tag=helper,limit=2] feet positioned ^ ^ ^1024 rotated as @s positioned ^-1024 ^ ^ run particle minecraft:flame ~ ~ ~ 0 0 0 0 1 force
 
-# ループゴリ押し
-execute anchored eyes positioned ^ ^ ^ anchored feet as @e[tag=helper] facing entity @s feet run function entity:villager/meeting_point_line_loop
+#execute as 0-0-0-0-1 at @s
+# positioned ^2048 ^ ^ facing entity 0-0-0-0-2 feet positioned ^ ^ ^1024 rotated as @s positioned ^-1024 ^ ^
+# positioned ^2048 ^ ^ facing entity @e[tag=helper,limit=2] feet positioned ^ ^ ^1024 rotated as @s positioned ^-1024 ^ ^
+# positioned ^2048 ^ ^ facing entity @e[tag=helper,limit=2] feet positioned ^ ^ ^1024 rotated as @s positioned ^-1024 ^ ^
+# positioned ^2048 ^ ^ facing entity @e[tag=helper,limit=2] feet positioned ^ ^ ^1024 rotated as @s positioned ^-1024 ^ ^
+# positioned ^2048 ^ ^ facing entity @e[tag=helper,limit=2] feet positioned ^ ^ ^1024 rotated as @s positioned ^-1024 ^ ^
+# run particle minecraft:flame ~ ~ ~ 0 0 0 0 1 force
