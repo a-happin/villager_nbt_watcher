@@ -42,7 +42,7 @@ scoreboard objectives setdisplay sidebar global
 scoreboard players set $2 const 2
 
 # world settings
-scoreboard players set $show_home_line global 1
-scoreboard players set $show_job_site_line global 1
-scoreboard players set $show_meeting_line global 1
-scoreboard players set $show_report_gossip global 1
+execute unless score $show_home_line global = $show_home_line global run scoreboard players set $show_home_line global 1
+execute unless score $show_job_site_line global = $show_job_site_line global run scoreboard players set $show_job_site_line global 1
+execute unless score $show_meeting_line global = $show_meeting_line global run scoreboard players set $show_meeting_line global 1
+execute unless score $show_report_gossip global = $show_report_gossip global run scoreboard players set $show_report_gossip global 1
