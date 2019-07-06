@@ -23,7 +23,7 @@ scoreboard players enable @a report_gossip
 # get daytime
 execute store result score $daytime global run time query daytime
 
-# get amount of villager
+# get the number of villager
 execute store result score $villager global if entity @e[type=villager]
 
 # show info
