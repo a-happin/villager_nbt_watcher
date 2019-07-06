@@ -26,9 +26,6 @@ execute store result score $daytime global run time query daytime
 # get the number of villager
 execute store result score $villager global if entity @e[type=villager]
 
-# show info
-#title @a actionbar ["daytime: ",{"score":{"name":"$daytime","objective":"global"}}]
-
 
 # report gossip
 execute if score $show_report_gossip global matches 1 as @e[type=villager] at @s run function entity:villager/report_gossip
