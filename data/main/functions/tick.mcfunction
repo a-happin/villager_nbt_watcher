@@ -31,7 +31,7 @@ execute store result score $villager global if entity @e[type=villager]
 
 
 # report gossip
-execute if score $report_gossip global matches 1 as @e[type=villager] at @s run function entity:villager/report_gossip
+execute if score $show_report_gossip global matches 1 as @e[type=villager] at @s run function entity:villager/report_gossip
 
 # show home
 execute if score $show_home_line global matches 1 as @e[type=villager,nbt={Brain:{memories:{"minecraft:home":{}}}}] at @s run function entity:villager/home_line
