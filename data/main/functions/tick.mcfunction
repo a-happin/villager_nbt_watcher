@@ -27,7 +27,7 @@ execute store result score $daytime global run time query daytime
 execute store result score $villager global if entity @e[type=villager]
 
 # show info
-title @a actionbar ["daytime: ",{"score":{"name":"$daytime","objective":"global"}}]
+#title @a actionbar ["daytime: ",{"score":{"name":"$daytime","objective":"global"}}]
 
 
 # report gossip
